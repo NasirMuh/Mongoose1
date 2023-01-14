@@ -1,11 +1,13 @@
 import express from 'express'
-
-import { getPosts,createPost } from '../controllers/postsFromController.js'
 const router = express.Router();
+import {
+    getPosts,
+    createPost,
+    getPost
+} from '../controllers/postsFromController.js'
 
 router.get('/', getPosts)
+router.get('/:id', getPost)
 router.post('/', createPost)
-
-
 
 export default router;
