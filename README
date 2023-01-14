@@ -1,0 +1,110 @@
+// import mongoose from "mongoose";
+// const { Schema, model, models } = mongoose;
+
+// const personsSchema = new Schema({
+//     firstName: String,
+//     lastName: String,
+//     age: Number,
+//     createdAt: { type: Date, default: () => Date.now(), immutable: true },
+//     updatedAt: { type: Date, default: () => Date.now() }
+// })
+// const Persons = models.Persons || model("Persons", personsSchema)
+// export default Persons;
+
+ // address: {   city: String,  street: String }
+    // hobbies: [],
+    // address: addresSchema,
+
+// validation for string
+// lastName: { type: String, required: true,  minLength: 3,  maxLength: 10, lowercase: true,  uppercase: true,},
+
+// validation for Number
+// age: {  type: Number,  min: 20,  max: 100,   required: true ,
+//     validate: {
+//         validator: v => v%2 ===0,
+//         message: props=> `${props.value} is not an even number` 
+//     }
+// },
+
+// address: addresSchema, // it is use to import or export other schema
+// const addresSchema = new Schema({
+//     city: String,
+//     street: String,
+// })
+
+// it is instance method
+// personsSchema.methods.sayHi = function () {
+//     console.log(`hi ${this.firstName} welcome to here`)
+// }
+
+// it is working with object
+// personsSchema.statics.byName = function (firstName) {
+//     return this.find({ firstName: new RegExp(firstName, "i") })
+// }
+
+
+
+
+//SERVER FILE
+// mongoose.set('strictQuery', false); // it is useful to remove warning from console
+// import dotenv from "dotenv"; // it is use to import for .env files
+// dotenv.config();
+
+// import mongoose from "mongoose"
+// import Persons from "./Person.mjs"; // .mjs extension is required now
+
+// // This part is database 
+// // const openuri = 'mongodb+srv://Xtalish:Oyextalish9@cluster0.fmz0rzv.mongodb.net/WelcomePerson1?retryWrites=true&w=majority'
+// mongoose.connect(process.env.DATABASE_URL, () => {
+//     console.log("Connected to MongoDB");
+// }, e => console.error(e.message))
+
+
+// this is use for insert data to database
+// try {
+//     const person = await Persons.create({
+//         firstName: "Ahmad ali",
+//         lastName: "Faisal ali",
+//         age: 27,
+//     })
+//     console.log(person)
+// } catch (error) {
+//     console.log(error.message)
+// }
+
+// it is useful to find by id in database
+// const person5 = await Persons.findById("63bb1957f3b86482e710c8d8")
+// // person5.sayHi()
+// console.log(person5)
+
+// it is useful to find by id in database
+// const person7 = await Persons.byName("Argman").count()
+// console.log(person7)
+
+// it is useful to find by id in database
+// const person6 = await Persons
+// // .where("firstName").equals("Muhammad")
+// .where("age").gt(30).lt(50)
+// // .where("lastName").equals("Hello Nasir")
+// .select("age")
+// console.log(person6)
+
+
+
+// this is use for find data from the database
+
+// const person1 = await Persons.find({}).count()
+// console.log(person1)
+
+
+// this is use for delete data from the database
+
+// const person2 = await Persons.deleteOne({firstName : "Ali"})
+// console.log(person2)
+
+// this is use for many delete data from the database
+
+// const person3 = await Persons.deleteMany({})
+// console.log(person3)
+
+
