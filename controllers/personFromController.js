@@ -1,13 +1,17 @@
 import Persons from "../models/Person.js"; // .mjs extension is required now
-
+//Using try-catch statement is more readable and neat, 
+// but it can only handle synchronous errors.
+// ASYNC AWAIT using with TRY - CATCH
+// .exec() it is used for IF - ELSE
 // create Single data
 export const CreateSinglePerson = async (req, res) => {
     try {
         const person = await Persons.create(req.body)
-        res.status(201).json({ message: person })
+        res.status(201).json({ message: 'User created successfully', person })
     } catch (error) {
-        es.status(409).json({ message: error.message })
+        res.status(409).json({ message: error.message })
     }
+   
 }
 
 // create Multiple data 
@@ -55,9 +59,9 @@ export const deleteSingleData = async (req, res) => {
     const _id = req.params.id;
     try {
         const person = await Persons.deleteOne({ _id })
-        res.status(200).json({ message: person }) 
+        res.status(200).json({ message: person })
     } catch (error) {
         res.status(404).json({ message: error.message })
-        
+
     }
 }

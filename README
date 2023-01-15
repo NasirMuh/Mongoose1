@@ -102,6 +102,23 @@
 // console.log(person6)
 
 
+// Using try-catch statement is more readable and neat,
+//  but it can only handle synchronous errors. On the other hand,
+//   using if-else statements can handle both synchronous and asynchronous 
+//   errors, and it is more common in expressjs application.
+
+// It is also important to mention that in Express.js, 
+// you can use middleware functions for error handling. Those functions are
+//  registered using the app.use((err, req, res, next) => { ... }) function,
+//   and they are called when an error is thrown. They can be useful to handle
+//    errors globally in your application,
+
+//  without having to repeat the same error handling code in different routes.
+
+
+
+
+
 
 // this is use for find data from the database
 
